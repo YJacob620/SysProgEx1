@@ -47,7 +47,7 @@ main.o: main.c
 	gcc -Wall -c main.c
 
 # general commands
-all : $(O_FILES_BASE) advancedClassificationLoop.o advancedClassificationRecursion.o libclassloops.a libclassrec.a libclassloops.so libclassrec.so
+all : $(O_FILES_BASE) advancedClassificationLoop.o advancedClassificationRecursion.o main.o libclassloops.a libclassrec.a libclassloops.so libclassrec.so
 
 clean:
 	rm -f *.o *.a *.so maind* mains
