@@ -34,14 +34,17 @@ libclassrec.so: $(O_FILES_BASE) advancedClassificationRecursion.o
 	gcc -Wall -fPIC -shared $(O_FILES_BASE) advancedClassificationRecursion.c -o libclassrec.so
 
 # executables
-mains: main.c libclassrec.a # static recursive
-	gcc -Wall main.c -l:libclassrec.a -L. -o mains
+mains: main.o libclassrec.a # static recursive
+	gcc -Wall main.o -l:libclassrec.a -L. -o mains
 
-maindloop: main.c libclassloops.so # dynamic loop
-	gcc -Wall main.c -L. -l:libclassloops.so -o maindloop -Wl,-rpath,.
+maindloop: main.o libclassloops.so # dynamic loop
+	gcc -Wall main.o -L. -l:libclassloops.so -o maindloop -Wl,-rpath,.
 
-maindrec: main.c libclassrec.so # dynamic recursive
-	gcc -Wall main.c -L. -l:libclassrec.so -o maindrec -Wl,-rpath,.
+maindrec: main.o libclassrec.so # dynamic recursive
+	gcc -Wall main.o -L. -l:libclassrec.so -o maindrec -Wl,-rpath,.
+
+main.o: main.c
+	gcc -Wall -c main.c
 
 # general commands
 all : $(O_FILES_BASE) advancedClassificationLoop.o advancedClassificationRecursion.o libclassloops.a libclassrec.a libclassloops.so libclassrec.so
