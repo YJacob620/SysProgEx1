@@ -8,9 +8,9 @@
 
 #endif
 
-int main(int start, int end) {
-    // int start, end;
-    // scanf("%d%d", &start, &end);
+int main() {
+    int start, end;
+    scanf("%d%d", &start, &end);
     if (start>end) { // invalid inputs case
         printf("Error: Invalid range");
         return 0;
