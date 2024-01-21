@@ -12,6 +12,9 @@ advancedClassificationLoop.o: advancedClassificationLoop.c
 advancedClassificationRecursion.o: advancedClassificationRecursion.c
 	gcc -Wall -c advancedClassificationRecursion.c
 
+main.o: main.c
+	gcc -Wall -c main.c
+
 # libraries
 loops: libclassloops.a # static loop
 
@@ -42,9 +45,6 @@ maindloop: main.o libclassloops.so # dynamic loop
 
 maindrec: main.o libclassrec.so # dynamic recursive
 	gcc -Wall main.o -L. -l:libclassrec.so -o maindrec -Wl,-rpath,.
-
-main.o: main.c
-	gcc -Wall -c main.c
 
 # general commands
 all : $(O_FILES_BASE) advancedClassificationLoop.o advancedClassificationRecursion.o libclassloops.a libclassrec.a libclassloops.so libclassrec.so mains maindloop maindrec
