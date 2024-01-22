@@ -75,7 +75,8 @@ int main() {
     for (int i = 0;i < currentSize4;i++) {
         printf(" %d", strongsDynamicArray[i]);
     }
-
+    printf("\n");
+        
     free(primesDynamicArray);
     free(armstrongsDynamicArray);
     free(strongsDynamicArray);
