@@ -81,5 +81,5 @@ int main() {
     free(strongsDynamicArray);
     free(palindromesDynamicArray);
 
-    return 1;
+    return 0;
 }
